@@ -1,7 +1,7 @@
 ## District Comparison Tool
 # ui.R
 
-shinyUI(navbarPage("Comparison Tool",
+shinyUI(navbarPage("Comparison Tool", theme = "doe-style.css",
     tabPanel("District",
         useShinyjs(),
         fluidRow(
