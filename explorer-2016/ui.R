@@ -1,7 +1,8 @@
 ## District Data Explorer
 # ui.R
 
-shinyUI(navbarPage("Data Explorer", theme = "doe-style.css",
+shinyUI(navbarPage(title = "Data Explorer", theme = "doe-style.css",
+
     tabPanel("District",
         fluidRow(
             column(3, offset = 1,
@@ -25,73 +26,6 @@ shinyUI(navbarPage("Data Explorer", theme = "doe-style.css",
             ),
             column(7,
                 rbokehOutput("scatter", height = "650px")
-            )
-        ),
-        br(),
-        conditionalPanel(condition = "input.highlight != ''",
-            fluidRow(
-                column(10, offset = 1,
-                    tabsetPanel(
-                        tabPanel("District Information",
-                            fluidRow(
-                                column(7,
-                                    leafletOutput("map")
-                                ),
-                                column(5,
-                                    br(),
-                                    htmlOutput("district_info")
-                                )
-                            )
-                        ),
-                        tabPanel("Achievement",
-                            fluidRow(
-                                br(),
-                                column(7,
-                                    rbokehOutput("prof", height = "650px")
-                                ),
-                                column(5,
-                                    "On Track/Mastered Percentages are shown for subjects with 10 or more tests and do not
-                                    reflect accountability rules (e.g., Algebra I reassigned to Math for 8th graders)."
-                                )
-                            )
-                        ),
-                        tabPanel("Growth",
-                            fluidRow(
-                                br(),
-                                column(7,
-                                    tableOutput("tvaas_table")
-                                ),
-                                column(5,
-                                    strong(p("The Tennessee Value-Added Assessment System (TVAAS) measures student growth on TNReady assessments.")),
-                                    p("A TVAAS Level 4 or 5 indicates that students made more than the expected growth."),
-                                    p("A TVAAS Level 3 indicates that students made the expected growth."),
-                                    p("A TVAAS Level 1 or 2 indicates that students made less than the expected growth.")
-                                )
-                            )
-                        ),
-                        tabPanel("Ready Graduate",
-                            br(),
-                            fluidRow(
-                                column(7,
-                                    rbokehOutput("grad_chart", height = "650px")
-                                ),
-                                column(5,
-                                    p("Graduation Rate is the percentage of students earning a high school diploma within four years and a summer.")
-                                )
-                            )
-                        )
-                        # tabPanel("Opportunity to Learn"),
-                        # tabPanel("English Proficiency")
-                    )
-                )
-            ),
-            fluidRow(
-                column(10, offset = 1,
-                    hr(),
-                    p("Click below to download this data as a document or presentation."),
-                    downloadButton("report", "Download Report"),
-                    downloadButton("presentation", "Download Presentation")
-                )
             )
         ),
         fluidRow(
