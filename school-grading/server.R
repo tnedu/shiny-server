@@ -139,13 +139,13 @@ function(input, output, session) {
     # Inputs for success rate, TVAAS, subgroup growth
     output$achievement_table <- renderRHandsontable({
 
-        success_rate <- factor(c("One-year success rate is greater than or equal to 30% but less than 40%",
+        success_rate <- factor(c("One-year success rate is greater than or equal to 35% but less than 45%",
                 rep("N/A - School does not serve 30 students in this subgroup", 5)),
             levels = c("N/A - School does not serve 30 students in this subgroup",
-                "One-year success rate is less than 20%",
-                "One-year success rate is greater than or equal to 20% but less than 30%",
-                "One-year success rate is greater than or equal to 30% but less than 40%",
-                "One-year success rate is greater than or equal to 40% and less than 50%",
+                "One-year success rate is less than 25%",
+                "One-year success rate is greater than or equal to 25% but less than 35%",
+                "One-year success rate is greater than or equal to 35% but less than 45%",
+                "One-year success rate is greater than or equal to 45% and less than 50%",
                 "One-year success rate is greater or equal to 50%"), ordered = TRUE)
 
         success_target <- factor(c("Upper bound of one-year success rate confidence interval equals or exceeds AMO target",
@@ -214,14 +214,14 @@ function(input, output, session) {
     # Inputs for ACT and grad
     output$ready_grad_table <- renderRHandsontable({
 
-        ready_grad_abs <- factor(c("30% to less than 40% of graduates score a 21+ on the ACT",
+        ready_grad_abs <- factor(c("25% to less than 30% of graduates score a 21+ on the ACT",
                 rep("N/A - School does not serve 30 students in this subgroup", 5)),
             levels = c("N/A - School does not serve 30 students in this subgroup",
-                "Less than 25% of graduates score a 21+ on the ACT",
+                "Less than 16% of graduates score a 21+ on the ACT",
+                "16% to less than 25% of graduates score a 21+ on the ACT",
                 "25% to less than 30% of graduates score a 21+ on the ACT",
                 "30% to less than 40% of graduates score a 21+ on the ACT",
-                "40% to less than 50% of graduates score a 21+ on the ACT",
-                "50% or more of graduates score a 21+ on the ACT"), ordered = TRUE)
+                "40% or more of graduates score a 21+ on the ACT"), ordered = TRUE)
 
         ready_grad_target <- factor(c("Upper bound of ready graduates confidence interval equals or exceeds AMO target",
                 rep("N/A - School does not serve 30 students in this subgroup", 5)),
